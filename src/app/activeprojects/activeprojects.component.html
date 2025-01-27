@@ -1,0 +1,17 @@
+<mat-paginator  [length]="Size"
+                [pageSize]=10
+                [pageSizeOptions]="[5, 10, 25, 50, 100]"
+                aria-label="Select page"
+                (page)="onPageEvent($event)"
+                class="at-bottom">
+</mat-paginator>
+<div class="legend">
+    <div class="finished-marker"></div>
+    <p>Finished Project</p>
+    <div class="divider"></div>
+    <div class="inprogress-marker"></div>
+    <p>In Progress Project</p>
+</div>
+<div id="project-cluster">
+
+</div>

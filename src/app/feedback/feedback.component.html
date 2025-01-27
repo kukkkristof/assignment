@@ -1,0 +1,89 @@
+<mat-stepper #stepper id="stepper">
+        <mat-step label="Basic Information" [stepControl]="basicFormGroup" errorMessage="Please fill all elements correctly!">
+            <form [formGroup]="basicFormGroup">
+                <div class="test">
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput required [formControl]="firstName" name="firstname" type="text">
+                        @if (firstName.invalid) {
+                            <mat-error>{{getErrorMessage('firstname')}}</mat-error>
+                          }
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput required [formControl]="lastName" name="lastname" type="text">
+                        @if (lastName.invalid) {
+                            <mat-error>{{getErrorMessage('lastname')}}</mat-error>
+                          }
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>E-mail Address</mat-label>
+                        <input matInput required [formControl]="email" name="email" type="email">
+                        @if (email.invalid) {
+                            <mat-error>{{getErrorMessage('email')}}</mat-error>
+                          }
+                    </mat-form-field>
+                    <label id="example-radio-group-label">Gender *:</label>
+                    <mat-radio-group [formControl]="gender">
+                        <mat-radio-button value="male" name="gender">Male</mat-radio-button>
+                        <mat-radio-button value="female" name="gender">Female</mat-radio-button>
+                        @if (gender.invalid) {
+                            <mat-error>{{getErrorMessage('gender')}}</mat-error>
+                          }
+                    </mat-radio-group>
+                    <button mat-raised-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step label="More Information" [stepControl]="moreFormGroup" errorMessage="Please fill all elements correctly!">
+            <form [formGroup]="basicFormGroup">
+                <div class="test">
+                    <p>Please tell us, what do you think we should do better!</p>
+                    <mat-form-field appearance="outline" class="message-component">
+                        <mat-label>Message</mat-label>
+                        <textarea matInput [formControl]="message" name="message"></textarea>
+                        @if (message.invalid) {
+                            <mat-error>{{getErrorMessage('message')}}</mat-error>
+                          }
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="message-component">
+                        <mat-label>Date of birth</mat-label>
+                        <input matInput [matDatepicker]="picker" [formControl]="dateofbirth" id="date-of-birth">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        @if (dateofbirth.invalid) {
+                            <mat-error>{{getErrorMessage('dateofbirth')}}</mat-error>
+                          }
+                    </mat-form-field>
+                    <button mat-raised-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step label="Optional Information" [stepControl]="optionalFormGroup" optional>
+            <form [formGroup]="basicFormGroup">
+                <div class="test">
+                    <p>Favorite Color</p>
+                    <input [formControl]="favcolor" name="favcolor" type="color" id="favcolor">
+                    <mat-checkbox>I would be like to be notified when a new project gets revealed!</mat-checkbox>
+                    <button mat-raised-button matStepperNext>Next</button>
+                </div>
+            </form>
+
+        </mat-step>
+        <mat-step label="Finishing Steps">
+            <div class="test">
+            <mat-label>
+                Once you are done filling out all the information, press the Send button!
+            </mat-label>
+            <mat-label>
+                Please take your time, and revise all data before submitting this feedback!
+            </mat-label>
+
+            <button mat-raised-button (click)="stepper.reset()" id="resetbtn">Reset</button>
+            <button mat-raised-button onclick="validate()" (click)="stepper.reset()" id="submitbtn" [disabled]="hasInvalidMembers()"  >Submit</button>
+            </div>
+        </mat-step>
+
+</mat-stepper>
+

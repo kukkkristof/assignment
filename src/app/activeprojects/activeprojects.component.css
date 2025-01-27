@@ -1,0 +1,37 @@
+#project-cluster
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 15px;
+}
+
+.legend
+{
+    width:  calc(100% - 20px);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.finished-marker
+{
+    background-color: green;
+    width: 15px;
+    height: 15px;
+}
+
+.inprogress-marker
+{
+    background-color: orange;
+    width: 15px;
+    height: 15px;
+}
+
+.divider
+{
+    width: 2px;
+    height: 15px;
+    background-color: gray;
+    margin: 0 30px;
+}

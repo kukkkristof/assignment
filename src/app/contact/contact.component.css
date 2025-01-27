@@ -1,0 +1,71 @@
+table{
+    user-select: none;
+    width: 1000px;
+    border-spacing: 0;
+    margin: auto;
+    border: 1px solid black;
+}
+
+td
+{
+    padding: 5px;
+    width: 250px;
+}
+
+table tr:nth-child(1)
+{
+    background-color: #505a;
+    
+    color: white;
+    font-variant: small-caps;
+    font-size: 24px;
+    padding: 50px;
+}
+
+tr td:nth-child(2)
+{
+    user-select: text;
+}
+
+table tr:nth-child(even)
+{
+    background-color: #8085;
+}
+
+h1
+{
+    text-align: center;
+    margin: 25px;
+    font-size: 32px;
+}
+ul
+{
+    font-size: 16px;
+}
+li
+{
+    margin: 10px
+}
+.question
+{
+    font-weight: bold;
+}
+
+.answer
+{
+    border-bottom: 1px solid black;
+}
+
+a
+{
+    text-decoration: none;
+    font-weight: bolder;
+    padding: 0 10px;
+    color: black;
+    background-color: #f3ce13;
+    border-radius: 3px;
+}
+a:visited
+{
+    text-decoration: none;
+}
